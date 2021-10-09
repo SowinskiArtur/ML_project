@@ -1,5 +1,8 @@
 #stworzymy specjalna funkcje do logarytmowania zmiennej, które zamieni ujemne wartosci na zera, w przypadku kiedy wystapia
 
+import numpy as np
+import pandas as pd
+
 def log_func(df,column,valid,features,precision,stand=False,*args,**kwargs):
     features2=features.copy()
     features2.remove(column)
