@@ -52,3 +52,11 @@ def create_probs_series(probs,indices):
     probs=pd.Series(probs,index=indices).sort_index()
     probs.index=range(1,30001)
     return probs
+
+#funkcja do standaryzacji
+
+def stand(features,df,valid,function=lambda x: (x-np.min(x))/(np.max(x)-np.min(x))):
+    df2=df.copy()
+    df2[features]=df2[features].apply(function)
+    test_precisions, probs, indices=valid(df=df2)
+    print(np.mean(test_precisions))
